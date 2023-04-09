@@ -1,3 +1,7 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "FFT.h"
 
 Complex data_of_N_FFT[FFT_N];			//定义存储单元，原始数据与复数结果均使用之 
@@ -152,3 +156,7 @@ void Refresh_Data(int id, double wave_data)
 	data_of_N_FFT[id].real = wave_data;
 	data_of_N_FFT[id].imag = 0;
 }
+
+#ifdef __cplusplus
+}
+#endif

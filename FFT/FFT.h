@@ -1,11 +1,15 @@
 #ifndef FFT_H_
 #define FFT_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <math.h>
 
 #define PI				3.14159265358979323846264338327950288419716939937510	//圆周率
 
-#define FFT_N			1024		//傅里叶变换的点数 
+#define FFT_N			(1024*8)		//傅里叶变换的点数
 
 #define FFT_RESULT(x) 	(sqrt(data_of_N_FFT[x].real*data_of_N_FFT[x].real+data_of_N_FFT[x].imag*data_of_N_FFT[x].imag)/ (FFT_N >> (x != 0)))
 #define FFT_Hz(x, Sample_Frequency)		((double)(x * Sample_Frequency) / FFT_N)
@@ -24,5 +28,9 @@ void Init_FFT(void);
 void FFT(void);
 void IFFT(void);
 void Refresh_Data(int id, double wave_data);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // !FFT_H_
